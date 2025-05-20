@@ -12,7 +12,7 @@
 - [Core Mechanics](#core-mechanics)
 - [API Integration](#api-integration)
 - [Testing & Safety](#testing--safety)
-- [Roadmap](#roadmap)
+- [Disclaimer](#Disclaimer)
 - [License](#license)
 
 ## Features
