@@ -26,9 +26,9 @@
 - **Survival Gacha System**  
   Collect 8 types of survival cards with 4 rarity tiers:
   - Common (90%): Torn Map Fragment, Squirrel's Blessing
-  - Rare (9%): 30-min Compass, Water Purifier
-  - Epic (0.9%): Fire Starter, Poisonous Berry
-  - Legendary (0.1%): 1hr Local Guide, Rescue Helicopter
+  - Rare (9.9%): 30-min Compass, Water Purifier
+  - Epic (0.09%): Fire Starter, Poisonous Berry
+  - Legendary (0.01%): 1hr Local Guide, Rescue Helicopter
 
 - **Dynamic Mapping**  
   Retro-styled map rendering with:
@@ -89,9 +89,9 @@ graph TD
 | Rarity | Base Rate | Pity System* |
 |--------|-----------|--------------|
 | Common | 90%       | -            |
-| Rare   | 9%        | Every 20 pulls |
-| Epic   | 0.9%      | Every 100 pulls |
-| Legendary | 0.1%  | Guaranteed at 200 pulls |
+| Rare   | 9.9%        | Every 20 pulls |
+| Epic   | 0.09%      | Every 100 pulls |
+| Legendary | 0.01%  | Guaranteed at 200 pulls |
 
 *Pity counter resets after successful pull
 
@@ -148,17 +148,17 @@ Enable HTTPS for geolocation
 openssl req -x509 -newkey rsa:4096 -nodes -keyout key.pem -out cert.pem -days 365
 ```
 
-## Roadmap
+##Disclaimer
+This project is a satirical commentary on:
 
-### Q3 2024
-- [ ] Implement auto-renew subscriptions
-- [ ] Add card fusion system
-- [ ] Develop AR compass mode
+Predatory mobile app practices
+Over-reliance on navigation systems
+Microtransaction culture
+Not intended for actual navigation use. May cause existential crises.
 
-### Q4 2024
-- [ ] Cross-device sync
-- [ ] Offline map caching
-- [ ] Wildlife encounter mini-games
+##License
+MIT License
 
-## License
+Copyright © 2025 Nature's Detour
 
+Permission is hereby granted...
