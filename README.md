@@ -28,8 +28,8 @@
   Collect 8 types of survival cards with 4 rarity tiers:
   - Common (90%): Torn Map Fragment, Squirrel's Blessing
   - Rare (9.9%): 30-min Compass, Water Purifier
-  - Epic (0.09%): Fire Starter, Poisonous Berry
-  - Legendary (0.01%): 1hr Local Guide, Rescue Helicopter
+  - Epic (0.0099%): Fire Starter, Poisonous Berry
+  - Legendary (0.0001%): 1hr Local Guide, Rescue Helicopter
 
 - **Dynamic Mapping**  
   Retro-styled map rendering with:
