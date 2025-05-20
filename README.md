@@ -87,14 +87,13 @@ graph TD
 ## Core Mechanics
 
 ### 🎰 Gacha Probability Matrix
-| Rarity | Base Rate | Pity System* |
-|--------|-----------|--------------|
-| Common | 90%       | -            |
-| Rare   | 9.9%        | Every 20 pulls |
-| Epic   | 0.09%      | Every 100 pulls |
-| Legendary | 0.01%  | Guaranteed at 200 pulls |
+| Rarity | Base Rate |
+|--------|-----------|
+| Common | 90%       | 
+| Rare   | 9.9%        | 
+| Epic   | 0.0099%      | 
+| Legendary | 0.0001%  |
 
-*Pity counter resets after successful pull
 
 ### 🔄 Route Generation Logic
 ```python
