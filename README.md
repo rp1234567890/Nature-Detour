@@ -1,6 +1,7 @@
 # Nature's Detour Navigation System
 
-![Interface Preview](https://via.placeholder.com/800x400.png?text=Retro+Terminal+UI+Preview)
+![Uploading image.png…]()
+
 
 > **"Because getting lost is the new found!"**  
 > An experimental navigation system combining retro terminal aesthetics with survival gacha mechanics.
