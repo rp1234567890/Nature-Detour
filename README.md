@@ -1,6 +1,6 @@
-# Nature's Detour Navigation System
 
-![Uploading image.png…]()
+# Nature's Detour Navigation System
+![image](https://github.com/user-attachments/assets/31ce03c9-5eb4-4f3b-91c0-3c04b04ea75b)
 
 
 > **"Because getting lost is the new found!"**  
