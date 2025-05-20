@@ -240,15 +240,15 @@ function performPull(count = 1) {
         const chance = Math.random() * 100;
         let resultItem = '';
         
-        if (chance < 0.2) {
+        if (chance < 0.0009) {
             // 传奇物品
             const legendaryItems = ['Local Guide (1h)', 'Emergency Helicopter'];
             resultItem = legendaryItems[Math.floor(Math.random() * legendaryItems.length)];
-        } else if (chance < 0.9) {
+        } else if (chance < 0.009) {
             // 史诗物品
             const epicItems = ['Fire Starter', 'Poisonous Berry'];
             resultItem = epicItems[Math.floor(Math.random() * epicItems.length)];
-        } else if (chance < 10) {
+        } else if (chance < 1) {
             // 稀有物品
             const rareItems = ['Compass (30min)', 'Water Purifier'];
             resultItem = rareItems[Math.floor(Math.random() * rareItems.length)];
@@ -264,9 +264,9 @@ function performPull(count = 1) {
         // 显示视觉反馈
         if (count === 1) {
             let rarity = 'Common';
-            if (chance < 0.2) rarity = 'Legendary';
-            else if (chance < 0.9) rarity = 'Epic';
-            else if (chance < 10) rarity = 'Rare';
+            if (chance < 0.0009) rarity = 'Legendary';
+            else if (chance < 0.009) rarity = 'Epic';
+            else if (chance < 1) rarity = 'Rare';
             
             showMessage('Pull Result', `You received: ${resultItem} (${rarity})`);
         }
