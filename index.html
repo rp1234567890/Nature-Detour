@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nature's Detour - "Get Lost" Navigation System</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+<body>
+    <!-- New top banner -->
+    <div class="top-banner" id="top-banner">
+        <p>You have <span id="remaining-pulls">0</span> pulls remaining</p>
+    </div>
+
+    <button class="sos-button" onclick="activateSOS()">SOS<br>¥299</button>
+
+
+    <header>
+        <div class="logo">Nature's Detour</div>
+        <div class="tagline">"Because getting lost is the new found!"</div>
+        <button class="cta-button">START WANDERING</button>
+    </header>
+
+    <button class="inventory-button" onclick="showInventory()">🎒 Inventory</button>
+
+    <!-- 在原有的map-container中添加地址输入框 -->
+    <div class="map-container">
+        <h2 style="color: #7cfc00; text-align: center; margin-bottom: 1rem;">Your Journey Awaits</h2>
+        <div class="address-inputs">
+            <input type="text" id="start-point" placeholder="Start Point (e.g. KCIS)">
+            <input type="text" id="end-point" placeholder="Destination (e.g. Yancheng)">
+            <button onclick="calculateRoute()">Create Path</button>
+        </div>
+        <div id="dynamic-map"></div>
+        <div class="directions">
+            <div id="route-instructions"></div>
+        </div>
+    </div>
+
+    <!-- Navigation Section Moved Here -->
+    <div class="navigation-section">
+        <h2 class="navigation-title">Navigation From KCIS</h2>
+        <p class="navigation-description">Find your way to nearby attractions with our special detour routes</p>
+        
+        <div class="navigation-buttons">
+            <button class="navigation-button yancheng">Yancheng</button>
+            <button class="navigation-button dianshanhu">Dianshanhu</button>
+            <button class="navigation-button qiandeng">Qiandeng</button>
+            <button class="navigation-button suzhou">Suzhou</button>
+            <button class="navigation-button shanghai">Shanghai</button>
+        </div>
+        
+        <div class="navigation-route" id="navigation-route">
+            <h3>Selected Destination</h3>
+            <p>Please select a destination to view the route</p>
+            <p><span class="distance"></span> · <span class="duration"></span></p>
+            <div class="directions" style="margin-top: 1rem;">
+                <p>Directions will appear here</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="gacha-section">
+        <h2 class="gacha-title">Survival Card System</h2>
+        <p style="color: #cccccc; margin-bottom: 1rem;">Draw cards to enhance your wilderness journey!</p>
+        
+        <div class="cards-display">
+            <div class="card">
+                <div class="card-rarity">Common</div>
+                <div class="card-image"></div>
+                <div class="card-name">Torn Map Fragment</div>
+            </div>
+            <div class="card">
+                <div class="card-rarity">Common</div>
+                <div class="card-image"></div>
+                <div class="card-name">Squirrel's Blessing</div>
+            </div>
+            <div class="card">
+                <div class="card-rarity">Rare</div>
+                <div class="card-image rare"></div>
+                <div class="card-name">Compass (30min)</div>
+            </div>
+            <div class="card">
+                <div class="card-rarity">Rare</div>
+                <div class="card-image rare"></div>
+                <div class="card-name">Water Purifier</div>
+            </div>
+            <div class="card">
+                <div class="card-rarity">Epic</div>
+                <div class="card-image epic"></div>
+                <div class="card-name">Fire Starter</div>
+            </div>
+            <div class="card">
+                <div class="card-rarity">Epic</div>
+                <div class="card-image epic"></div>
+                <div class="card-name">Poisonous Berry</div>
+            </div>
+            <div class="card">
+                <div class="card-rarity">Legendary</div>
+                <div class="card-image legendary"></div>
+                <div class="card-name">Local Guide (1h)</div>
+            </div>
+            <div class="card">
+                <div class="card-rarity">Legendary</div>
+                <div class="card-image legendary"></div>
+                <div class="card-name">Emergency Helicopter</div>
+            </div>
+        </div>
+        
+        <button class="pull-button">PULL</button>
+        <button class="pull-button10">PULL 10</button>
+        
+        <!-- Recharge Section Moved Here -->
+        <div class="recharge-section">
+            <h2 class="recharge-title">Recharge Pulls</h2>
+            <p class="recharge-description">Select a recharge option to get more pulls</p>
+            
+            <div class="recharge-options">
+                <div class="recharge-option" data-amount="6" data-pulls="5">
+                    <div class="recharge-amount">¥6</div>
+                    <div class="recharge-pulls">5 pulls</div>
+                    <button class="recharge-select">Select</button>
+                </div>
+                <div class="recharge-option" data-amount="30" data-pulls="30">
+                    <div class="recharge-amount">¥30</div>
+                    <div class="recharge-pulls">30 pulls</div>
+                    <button class="recharge-select">Select</button>
+                </div>
+                <div class="recharge-option" data-amount="68" data-pulls="120">
+                    <div class="recharge-amount">¥68</div>
+                    <div class="recharge-pulls">120 pulls</div>
+                    <button class="recharge-select">Select</button>
+                </div>
+                <div class="recharge-option" data-amount="198" data-pulls="220">
+                    <div class="recharge-amount">¥198</div>
+                    <div class="recharge-pulls">220 pulls</div>
+                    <button class="recharge-select">Select</button>
+                </div>
+                <div class="recharge-option" data-amount="328" data-pulls="400">
+                    <div class="recharge-amount">¥328</div>
+                    <div class="recharge-pulls">400 pulls</div>
+                    <button class="recharge-select">Select</button>
+                </div>
+                <div class="recharge-option" data-amount="648" data-pulls="800">
+                    <div class="recharge-amount">¥648</div>
+                    <div class="recharge-pulls">800 pulls</div>
+                    <button class="recharge-select">Select</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>© 2025 Nature's Detour - All Rights Reserved</p>
+        <div class="disclaimer">
+            By using this service, you waive rights to:<br>
+            1) Survival<br>
+            2) Class action lawsuits<br>
+            3) Basic human dignity
+        </div>
+    </footer>
+
+    <div class="inventory-modal" id="inventory-modal">
+        <div class="inventory-content">
+            <h2 class="inventory-title">Your Inventory</h2>
+            <div class="inventory-list" id="inventory-list"></div>
+            <button class="close-button" onclick="closeInventory()">×</button>
+        </div>
+    </div>
+    
+    <!-- Message display overlay -->
+    <div class="message-overlay" id="message-overlay">
+        <div class="message-box">
+            <h3 id="message-title"></h3>
+            <p id="message-content"></p>
+            <button id="message-close">Close</button>
+        </div>
+    </div>
+    
+    <!-- Credit Card Modal -->
+    <div class="credit-card-modal" id="credit-card-modal">
+        <div class="card-input-container">
+            <h3>Enter Credit Card Details</h3>
+            <input type="text" class="card-input" placeholder="Card Number" id="card-number">
+            <div style="display: flex;">
+                <input type="text" class="card-expiry" placeholder="MM/YY" id="card-expiry">
+                <input type="text" class="card-cvv" placeholder="CVV" id="card-cvv">
+            </div>
+            <button id="confirm-payment">Confirm Payment</button>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>  
+</body>
+</html>
