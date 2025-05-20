@@ -42,9 +42,9 @@
 | Component | Description | Status |
 |-----------|-------------|--------|
 | CRT Filter | Scanline overlay effect | ✅ Stable |
-| Glitch VFX | Random screen distortions | 🟡 Beta |
-| SOS Beacon | Emergency rescue button (¥299) | ✅ Stable |
-| Inventory | Sidebar + Modal views | 🟡 Beta |
+| Glitch VFX | Random screen distortions | ✅ Stable |
+| SOS Beacon | Emergency rescue button (¥299) | 🟡 Beta |
+| Inventory | Sidebar + Modal views | ✅ Stable |
 
 ## Quick Start
 
